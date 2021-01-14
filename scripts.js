@@ -23,7 +23,7 @@ $(document).ready(function () {
         console.log(posts);
         printPosts();
     }
-    
+
     const printPosts = ()=>{
         // imprimirremos los posts
         posts.forEach((e,i)=>{
@@ -88,14 +88,14 @@ $(document).ready(function () {
             "method": "GET",
             "timeout": 0,
             "headers": {
-              "tile": "holatio",
-              "Cookie": "__cfduid=de908844017500a5fe40f0af2536d49721610547910"
+            "tile": "holatio",
+            "Cookie": "__cfduid=de908844017500a5fe40f0af2536d49721610547910"
             },
-          };
-          
-          $.ajax(settings).done(function (response) {
+        };
+
+        $.ajax(settings).done(function (response) {
             printData(response)
-          });
+        });
 
 
 
