@@ -3,7 +3,12 @@ $(document).ready(function () {
     let currentId = 0
     let posts = [];
 
+    $(window).scroll(function(){
+        console.log(window.scrollY);
+        $('.modalPost').css('top', window.scrollY);
+        $('.modalPost__container').css('top', (-window.scrollY)+50 );
 
+    })
 
 
     var settings = {
