@@ -1,1 +1,4 @@
 // scripts
+$(document).ready(function () {
+    
+});
