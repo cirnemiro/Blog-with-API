@@ -1,1 +1,47 @@
 /* styles */
+body{
+    background-color: rgb(241, 241, 241);
+}
+/* HEADER */
+header{
+    background-color: rgba(255, 99, 71, 0.796);
+}
+.header__title{
+    font-size: 40px;
+    font-family: 'Lobster', cursive;
+    padding: 10px;
+    color: rgb(157, 60, 60);
+
+}
+/* MAIN */
+main{
+    margin-top: 40px;
+}
+.posts{
+    width: 1000px;
+    margin: auto;
+    padding: 20px;
+    background-color: rgb(255, 255, 255);
+    box-shadow:1px 1px 10px 4px rgba(160, 155, 155, 0.242);
+    border-radius: 10px;
+}
+.post__element{
+    width: 100%;
+    margin-bottom: 55px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgb(132, 132, 132);
+}
+.post_element_data__title{
+    font-size: 35px;
+    font-family: 'Mada', sans-serif;
+    color: rgba(255, 99, 71, 0.796) ;
+    margin-bottom: 10px;
+}
+.editIcon{
+    color:  rgba(255, 99, 71, 0.796);
+    font-size: 30px;
+    margin-right: 10px;
+}
