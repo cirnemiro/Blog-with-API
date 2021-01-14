@@ -48,7 +48,6 @@ $(document).ready(function () {
                 divElementicons.addClass('post_element__icons');
                 // añadir dataset
                 divElementData.attr('data-id', e.id);
-                currentId = e.id
                 divElementData.attr('data-title', e.title);
                 divElementData.attr('data-body', e.body);
                 // append del elemento
@@ -63,6 +62,8 @@ $(document).ready(function () {
         })
     }
     const printModalPost = (data)=>{
+        currentId=data.id
+        $('.modalPost__comments').html('')
         const $close = $('.modalClose')
         $close.click(()=>{
             $('.modalPost').addClass('hidden')
@@ -107,9 +108,14 @@ $(document).ready(function () {
             body: e.target.parentNode.dataset.body
         })
     }
-
+    const hiddeComments = ()=>{
+        $('.modalPost__comments').html('')
+        $('.modalPost_comments_element__btn').html('Show comments')
+        $('.modalPost_comments_element__btn').click(showComments)
+    }
     const showComments = ()=>{
         // Variables
+        $('.modalPost_comments_element__btn').off('click')
         const $commentsElement = $('.modalPost__comments');
         var settings = {
             "url": "https://jsonplaceholder.typicode.com/comments",
@@ -121,6 +127,7 @@ $(document).ready(function () {
         });
 
         const printComents = (data)=>{
+            $commentsElement.html('')
             data.forEach(e => {
                 if (e.postId == currentId) {
                     const commentElement = $('<div></div>')
@@ -132,6 +139,8 @@ $(document).ready(function () {
                     $commentsElement.append(commentElement)
                 }
             });
+            $('.modalPost_comments_element__btn').html('hidde comments').click(hiddeComments)
+
         }
         // Put the information
         // $commentsTitle.html(dataComment.title);
