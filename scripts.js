@@ -1,5 +1,6 @@
 // scripts
 $(document).ready(function () {
+    let currentId = 0
     let posts = [];
 
 
@@ -9,10 +10,6 @@ $(document).ready(function () {
         "url": "https://jsonplaceholder.typicode.com/posts?",
         "method": "GET",
         "timeout": 0,
-        "headers": {
-        "tile": "holatio",
-        "Cookie": "__cfduid=de908844017500a5fe40f0af2536d49721610547910"
-        },
     };
 
     $.ajax(settings).done(function (response) {
@@ -51,6 +48,7 @@ $(document).ready(function () {
                 divElementicons.addClass('post_element__icons');
                 // añadir dataset
                 divElementData.attr('data-id', e.id);
+                currentId = e.id
                 divElementData.attr('data-title', e.title);
                 divElementData.attr('data-body', e.body);
                 // append del elemento
@@ -69,6 +67,8 @@ $(document).ready(function () {
         $close.click(()=>{
             $('.modalPost').addClass('hidden')
         })
+
+
         const printData = (dataFromPetition)=>{
 
             console.log(dataFromPetition);
@@ -78,19 +78,17 @@ $(document).ready(function () {
             $('.modalPost__body').html(data.body)
             $('.modalPost__name').html(dataFromPetition.name)
             $('.modalPost__email').html(dataFromPetition.email)
+            $('.modalPost_comments_element__btn').click(showComments)
 
             // // print data from petition
 
         }
+
         // peticion al servidor por ID
         var settings = {
             "url": `https://jsonplaceholder.typicode.com/users/${data.id}`,
             "method": "GET",
             "timeout": 0,
-            "headers": {
-            "tile": "holatio",
-            "Cookie": "__cfduid=de908844017500a5fe40f0af2536d49721610547910"
-            },
         };
 
         $.ajax(settings).done(function (response) {
@@ -109,4 +107,40 @@ $(document).ready(function () {
             body: e.target.parentNode.dataset.body
         })
     }
+
+    const showComments = ()=>{
+        // Variables
+        const $commentsElement = $('.modalPost__comments');
+        var settings = {
+            "url": "https://jsonplaceholder.typicode.com/comments",
+            "method": "GET",
+            "timeout": 0,
+        };
+        $.ajax(settings).done(function (response) {
+            printComents(response);
+        });
+
+        const printComents = (data)=>{
+            data.forEach(e => {
+                if (e.postId == currentId) {
+                    const commentElement = $('<div></div>')
+                    commentElement.html(`
+                        <h3 class="modalPost_comments_element__title">${e.name}</h3>
+                        <p class="modalPost_comments_element__body">${e.body}</p>
+                        <p class="modalPost_comments_element__email">${e.email}</p>
+                    `)
+                    $commentsElement.append(commentElement)
+                }
+            });
+        }
+        // Put the information
+        // $commentsTitle.html(dataComment.title);
+        // $commentsBody.html(dataComment.body);
+        // $commentsEmail.html(dataComment.email);
+    }
+
+    
+
+
 });
+
