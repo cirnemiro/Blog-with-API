@@ -17,23 +17,13 @@ $(document).ready(function () {
 
     $.ajax(settings).done(function (response) {
         posts=response;
+        init()
     });
-    function initialize(){
-        if (posts.length>0) {
-            console.log('full');
-            clearInterval(interval)
-            init()
-
-        }else{
-            console.log('empty');
-        }
-    }
-    let interval = setInterval(initialize, 100);
-
     const init = ()=>{
         console.log(posts);
         printPosts();
     }
+    
     const printPosts = ()=>{
         // imprimirremos los posts
         posts.forEach(e=>{
@@ -58,14 +48,26 @@ $(document).ready(function () {
             divElement.addClass('post__element');
             divElementData.addClass('post_element__data');
             divElementicons.addClass('post_element__icons');
+            // añadir dataset
+            // divElement.dataset.url = e.id
+            divElementData.attr('data-id', e.id);
             // append del elemento
+            // $('.post__element').attr('data-id', e.id);
             divElement.append(divElementData);
             divElement.append(divElementicons);
             $posts.append(divElement);
+            // add event listener
+            
+            divElementData.click(onClickData);
 
         })
         const printModalPost = ()=>{
-            
+            // peticion al servidor por ID
+
+            // print data from petition
         }
+    }
+    const onClickData = (e)=>{
+        console.log(e.target.parentNode.dataset.id);
     }
 });
