@@ -59,7 +59,7 @@ $(document).ready(function () {
                 $posts.append(divElement);
                 // add event listener
                 divElementData.click(onClickData);
-                
+
             }
 
         })
@@ -77,8 +77,8 @@ $(document).ready(function () {
             $('.modalPost__title').html(data.title)
             $('.modalPost__body').html(data.body)
             $('.modalPost__name').html(dataFromPetition.name)
-            $('.modalPost__mail').html(dataFromPetition.email)
-            
+            $('.modalPost__email').html(dataFromPetition.email)
+
             // // print data from petition
 
         }
