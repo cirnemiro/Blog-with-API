@@ -3,15 +3,19 @@
 }
 
 @media only screen and (min-width: 880px){
-    .modalPost{
+    /* .modalPost{
         width: 100%;
-    }
+    } */
 
 }
 
 @media only screen and (min-width: 1000px){
-.modalPost{
-    width: 100%;
-}
+
+    /* .post_element_data__title, .post_element_data__body{
+        width: 80%;
+    }
+    .editIcon{
+        max-width:20%;
+    } */
 
 }

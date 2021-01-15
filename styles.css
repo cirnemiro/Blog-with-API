@@ -4,6 +4,7 @@ body{
 }
 /* HEADER */
 header{
+    width: 100%;
     background-color: rgba(255, 99, 71, 0.796);
 }
 .header__title{
@@ -19,7 +20,7 @@ main{
 }
 /* POSTS */
 .posts{
-    width: 1000px;
+    width: 1360px;
     margin: auto;
     padding: 20px;
     background-color: rgb(255, 255, 255);
@@ -36,13 +37,25 @@ main{
     border-bottom: 1px solid rgb(132, 132, 132);
 }
 .post_element_data__title{
+    max-width: 80%;
+    border: 1px solid blue;
     font-size: 35px;
     font-family: 'Mada', sans-serif;
     color: rgba(255, 99, 71, 0.796) ;
     margin-bottom: 10px;
 }
+.post_element_data__body{
+    max-width: 80%;
+}
+.post_element_icons{
+    min-width: 6%;
+    /* border: 1px solid green; */
+}
 .editIcon{
+    align-items: flex-end;
+    padding: 0 4px;
     color:  rgba(255, 99, 71, 0.796);
     font-size: 30px;
-    margin-right: 10px;
+    border: 1px solid red;
+    display: inline;
 }
