@@ -135,7 +135,8 @@ $(document).ready(function () {
             $commentsElement.html('')
             data.forEach(e => {
                 if (e.postId == currentId) {
-                    const commentElement = $('<div></div>')
+                    const commentElement = $('<div class="modalPost_comments__container"></div>');
+                    // commentElement.attr('modalPost_comments__container');
                     commentElement.html(`
                         <h3 class="modalPost_comments_element__title">${e.name}</h3>
                         <p class="modalPost_comments_element__body">${e.body}</p>
