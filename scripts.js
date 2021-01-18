@@ -4,7 +4,7 @@ $(document).ready(function () {
     let posts = [];
 
     $(window).scroll(function(){
-        console.log(window.scrollY);
+        // console.log(window.scrollY);
         $('.modalPost').css('top', window.scrollY);
         $('.modalPost__container').css('top', (-window.scrollY)+50 );
 
@@ -22,7 +22,7 @@ $(document).ready(function () {
         init()
     });
     const init = ()=>{
-        console.log(posts);
+        // console.log(posts);
         printPosts();
     }
 
@@ -38,14 +38,14 @@ $(document).ready(function () {
                 const divElementicons = $('<div></div>');
                 // ponerle el contenido al elemento HTML
                 divElementData.html(`
-                    <h3 class="post_element_data__title">${e.title}</h3>
+                    <h2 class="post_element_data__title">${e.title}</h2>
                     <p class="post_element_data__body">${e.body}</p>
                 `);
                 divElementicons.html(`
                     <!-- svg edit -->
-                    <i class="fa fa-pencil-square-o editIcon" aria-hidden="true"></i>
+                    <i class="fa fa-pencil-square-o fa-lg editIcon" aria-hidden="true"></i>
                     <!-- svg delete -->
-                    <i class="fa fa-times-circle-o editIcon" aria-hidden="true"></i>
+                    <i class="fa fa-times-circle-o fa-lg editIcon" aria-hidden="true"></i>
                 `)
                 // ponerle clases al elemento
                 divElement.addClass('post__element');
@@ -135,7 +135,8 @@ $(document).ready(function () {
             $commentsElement.html('')
             data.forEach(e => {
                 if (e.postId == currentId) {
-                    const commentElement = $('<div></div>')
+                    const commentElement = $('<div class="modalPost_comments__container"></div>');
+                    // commentElement.attr('modalPost_comments__container');
                     commentElement.html(`
                         <h3 class="modalPost_comments_element__title">${e.name}</h3>
                         <p class="modalPost_comments_element__body">${e.body}</p>
