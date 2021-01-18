@@ -38,7 +38,7 @@ main{
 }
 .post_element_data__title{
     max-width: 80%;
-    border: 1px solid blue;
+    /* border: 1px solid blue; */
     font-size: 35px;
     font-family: 'Mada', sans-serif;
     color: rgba(255, 99, 71, 0.796) ;
@@ -56,6 +56,6 @@ main{
     padding: 0 4px;
     color:  rgba(255, 99, 71, 0.796);
     font-size: 30px;
-    border: 1px solid red;
+    /* border: 1px solid red; */
     display: inline;
 }
