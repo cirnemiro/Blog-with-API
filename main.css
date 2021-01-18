@@ -22,6 +22,8 @@ time, mark, audio, video {
     font: inherit;
     z-index: 0;
     text-decoration: none;
+    margin-block-start: 0;
+    margin-block-end: 0;
 }
 header{
     position: relative;
